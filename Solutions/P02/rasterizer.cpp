@@ -145,16 +145,18 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t) {
 
     // iterate through the pixel and find if the current pixel is inside the triangle
     bool MSAA = false;
+    int MSAA_times = 2;
     std::vector<Eigen::Vector2f> offset;
 
     if(MSAA) {
-        offset =
-                {
-                        {0.25, 0.25},
-                        {0.75, 0.25},
-                        {0.25, 0.75},
-                        {0.75, 0.75},
-                };
+        float step = 1./ MSAA_times;
+        for(int i = 0; i < MSAA_times; i++)
+        {
+            for(int j = 0; j < MSAA_times; j++)
+            {
+                offset.push_back({(i+0.5)*step, (j+0.5)*step});
+            }
+        }
     }
     else {
         offset =
