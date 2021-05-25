@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
-
+project(GAMES101)
 add_subdirectory(Solutions/P00)
 add_subdirectory(Solutions/P01)
 add_subdirectory(Solutions/P02)
+add_subdirectory(Solutions/P03)

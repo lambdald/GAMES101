@@ -144,7 +144,7 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t) {
     bby[1] = std::round(std::max(v[0][1], std::max(v[1][1], v[2][1])));
 
     // iterate through the pixel and find if the current pixel is inside the triangle
-    bool MSAA = false;
+    bool MSAA = true;
     int MSAA_times = 2;
     std::vector<Eigen::Vector2f> offset;
 
